@@ -1,0 +1,578 @@
+<div class="app-page-title">
+  <div class="page-title-wrapper">
+    <div class="page-title-heading">
+      <div class="page-title-icon">
+        <i class="pe-7s-map-marker icon-gradient bg-mean-fruit"> </i>
+      </div>
+      <div>
+        Collecting Regions
+        <div class="page-title-subheading">
+          {{ currentRoute }}
+        </div>
+      </div>
+    </div>
+    <div class="page-title-actions">
+      <button
+        type="button"
+        data-toggle="tooltip"
+        title="Create new user account"
+        data-placement="bottom"
+        class="btn-shadow mr-3 btn btn-success"
+        (click)="openRegionModel(RegionModel, 'sample_data')"
+      >
+        <i class="fa fa-plus"></i>
+        Add new
+      </button>
+
+      <div class="d-inline-block dropdown">
+        <button
+          type="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+          class="btn-shadow dropdown-toggle btn btn-info"
+        >
+          <span class="btn-icon-wrapper pr-2 opacity-7">
+            <i class="fa fa-business-time fa-w-20"></i>
+          </span>
+          Utility
+        </button>
+        <div
+          tabindex="-1"
+          role="menu"
+          aria-hidden="true"
+          class="dropdown-menu dropdown-menu-right"
+        >
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a href="javascript:void(0);" class="nav-link">
+                <i class="nav-link-icon lnr-inbox"></i>
+                <span> Inbox </span>
+                <div class="ml-auto badge badge-pill badge-secondary">86</div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="javascript:void(0);" class="nav-link">
+                <i class="nav-link-icon lnr-book"></i>
+                <span> Book </span>
+                <div class="ml-auto badge badge-pill badge-danger">5</div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="javascript:void(0);" class="nav-link">
+                <i class="nav-link-icon lnr-picture"></i>
+                <span> Picture </span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a disabled href="javascript:void(0);" class="nav-link disabled">
+                <i class="nav-link-icon lnr-file-empty"></i>
+                <span> File Disabled </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Cards row -->
+<div class="row">
+  <div class="col-md-6 col-xl-4">
+    <div class="card card2 mb-3 widget-content">
+      <div class="widget-content-outer">
+        <div class="widget-content-wrapper">
+          <div class="widget-content-left">
+            <div class="widget-heading">Total Regions</div>
+            <div class="widget-subheading text-success"></div>
+          </div>
+          <div class="widget-content-right">
+            <div class="widget-numbers text-success">{{ regions.length }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--.\Cards row -->
+
+<!-- Table -->
+<div class="row">
+  <div class="col-md-12">
+    <div class="main-card mb-3 card">
+      <div class="card-header">
+        <div class="mr-4">Regios listing</div>
+
+        <div class="search-wrapper">
+          <div class="input-holder">
+            <button class="search-icon"><span></span></button>
+          </div>
+        </div>
+
+        <div class="btn-actions-pane-right">
+          <div role="group" class="btn-group-sm btn-group">
+            <button class="active btn btn-focus">All</button>
+          </div>
+        </div>
+        <div class="d-flex flex-row-reverse bd-highlight mb-2">
+          <div class="p-2 bd-highlight">
+            <select (change)="onTableSizeChange($event)" class="custom-select">
+              <option *ngFor="let size of tableSizes" [ngValue]="size">
+                {{ size }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="isLoading | async" class="loader-container">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </div>
+
+      <div class="table-responsive">
+        <table
+          class="align-middle mb-0 table table-borderless table-striped table-hover"
+        >
+          <thead>
+            <tr>
+              <th class="text-center">#</th>
+              <th>Name</th>
+              <th class="text-center">Description</th>
+              <th class="text-center">Created Date</th>
+              <th class="text-center">Updated Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="
+                let region of regions
+                  | paginate
+                    : {
+                        itemsPerPage: tableSize,
+                        currentPage: page,
+                        totalItems: count
+                      };
+                let i = index
+              "
+            >
+              <td class="text-center text-muted">#{{ i + 1 }}</td>
+              <td>
+                <div class="widget-content p-0">
+                  <div class="widget-content-wrapper">
+                    <div class="widget-content-left mr-3">
+                      <div class="widget-content-left">
+                        <i class="pe-7s-map-marker"></i>
+                      </div>
+                    </div>
+                    <div class="widget-content-left flex2">
+                      <div class="widget-heading">{{ region?.name }}</div>
+                      <div class="widget-subheading opacity-7"></div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="text-center">{{ region?.description }}</td>
+              <td class="text-center">{{ region?.createdAt }}</td>
+              <td class="text-center">{{ region?.updatedAt }}</td>
+            </tr>
+            <tr *ngIf="regions.length == 0">
+              <td></td>
+              <td></td>
+              <td>
+                <span class="text-center"
+                  ><div class="badge badge-warning">
+                    {{ tbl_message }}
+                  </div></span
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="d-block text-center card-footer">
+        <!-- <ngb-pagination
+            [collectionSize]="users.length"
+            [(page)]="page"
+            [maxSize]="8"
+            [rotate]="true"
+            [ellipses]="false"
+            [boundaryLinks]="true"
+          ></ngb-pagination> -->
+
+        <pagination-controls
+          previousLabel="Prev"
+          nextLabel="Next"
+          (pageChange)="onTableDataChange($event)"
+        >
+        </pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>
+<!--.\Table -->
+
+<!-- Table 2 -->
+<div class="row">
+  <div class="col-md-12">
+    <div class="main-card mb-3 card">
+      <div class="card-header">
+        <div class="mr-4">Farmers/Suppliers by regions</div>
+
+        <div class="search-wrapper">
+          <div class="input-holder">
+            <button class="search-icon"><span></span></button>
+          </div>
+        </div>
+
+        <div class="btn-actions-pane-right">
+          <div role="group" class="btn-group-sm btn-group">
+            <button
+              class="active btn btn-focus"
+              (click)="openReport_01_Modal(Report_1_Model, 'sample_data')"
+            >
+              Genarate Report
+            </button>
+          </div>
+        </div>
+        <div class="d-flex flex-row-reverse bd-highlight mb-2">
+          <div class="p-2 bd-highlight">
+            <select (change)="onTableSizeChange($event)" class="custom-select">
+              <option *ngFor="let size of tableSizes" [ngValue]="size">
+                {{ size }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="isLoading | async" class="loader-container">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </div>
+
+      <div class="table-responsive">
+        <table
+          class="align-middle mb-0 table table-borderless table-striped table-hover"
+        >
+          <thead>
+            <tr>
+              <th class="text-center">#</th>
+              <th>Region Name</th>
+              <th class="text-center">Total Farmers</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="
+                let region of farmersCounts
+                  | paginate
+                    : {
+                        itemsPerPage: tableSize,
+                        currentPage: page,
+                        totalItems: count
+                      };
+                let i = index
+              "
+            >
+              <td class="text-center text-muted">#{{ i + 1 }}</td>
+              <td>
+                <div class="widget-content p-0">
+                  <div class="widget-content-wrapper">
+                    <div class="widget-content-left mr-3">
+                      <div class="widget-content-left">
+                        <i class="pe-7s-map-marker"></i>
+                      </div>
+                    </div>
+                    <div class="widget-content-left flex2">
+                      <div class="widget-heading">{{ region?.name }}</div>
+                      <div class="widget-subheading opacity-7"></div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="text-center">{{ region?.farmers_count }}</td>
+            </tr>
+            <tr *ngIf="farmersCounts.length == 0">
+              <td></td>
+              <td></td>
+              <td>
+                <span class="text-center"
+                  ><div class="badge badge-warning">
+                    {{ tbl_message }}
+                  </div></span
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="d-block text-center card-footer">
+        <!-- <ngb-pagination
+            [collectionSize]="users.length"
+            [(page)]="page"
+            [maxSize]="8"
+            [rotate]="true"
+            [ellipses]="false"
+            [boundaryLinks]="true"
+          ></ngb-pagination> -->
+
+        <pagination-controls
+          previousLabel="Prev"
+          nextLabel="Next"
+          (pageChange)="onTableDataChange($event)"
+        >
+        </pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>
+<!--.\Table 2-->
+
+<!-- Modal -->
+<ng-template #RegionModel let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">
+      Create Collecting Regions
+    </h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="spinner" *ngIf="isProgress | async">
+      <mat-spinner style="top: 40%; left: 40%"></mat-spinner>
+    </div>
+    <div>
+      <div class="card-body card-body-modal">
+        <div class="p-3">
+          <mat-horizontal-stepper #stepper linear>
+            <mat-step
+              [stepControl]="frmRegions"
+              errorMessage="All Field required."
+            >
+              <form [formGroup]="frmRegions" style="padding: 0%" class="mt-4">
+                <ng-template matStepLabel>Region Info</ng-template>
+
+                <!-- IMPORTANT for mat-autocomplete 
+                  /* styles.scss **Very necessory to show material drop down shown in the Modal  */
+                .cdk-global-overlay-wrapper, .cdk-overlay-container { z-index: 9999!important; } 
+                -->
+                <!-- collecting Region -->
+
+                <mat-form-field
+                  appearance="outline"
+                  class=""
+                  [style.width.%]="100"
+                >
+                  <mat-label>Region Name</mat-label>
+                  <input
+                    matInput
+                    placeholder="Region Name"
+                    formControlName="name"
+                  />
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" [style.width.%]="100">
+                  <mat-label>Description</mat-label>
+                  <input
+                    matInput
+                    placeholder="Description"
+                    formControlName="description"
+                  />
+                </mat-form-field>
+
+                <div>
+                  <button
+                    mat-button
+                    class="btn btn-primary rounded mt-2 ml-2"
+                    style="background-color: #3b3b3b"
+                    (click)="resetForm()"
+                  >
+                    Clear
+                  </button>
+
+                  <button
+                    [disabled]="!frmRegions.valid"
+                    (click)="clicksub(stepper)"
+                    mat-button
+                    class="btn btn-primary rounded mt-2 ml-2"
+                    style="background-color: #3f51b5"
+                  >
+                    Save Region
+                  </button>
+                </div>
+              </form>
+            </mat-step>
+
+            <mat-step>
+              <ng-template matStepLabel>Finish</ng-template>
+              <div class="row mt-4">
+                <div class="col">
+                  <div class="text-center">
+                    <h5 class="card-title" style="color: rgb(9, 163, 55)">
+                      <strong>Account created!</strong>
+                    </h5>
+                    <div>
+                      <i
+                        style="color: rgb(9, 163, 55)"
+                        class="fas fa-check-circle fa-5x"
+                        aria-hidden="true"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </mat-step>
+          </mat-horizontal-stepper>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <!-- <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button> -->
+  </div>
+</ng-template>
+<!--.\Modal -->
+
+<!--Report Modal -->
+<ng-template #Report_1_Model let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Create Report</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="spinner" *ngIf="isProgress | async">
+      <mat-spinner style="top: 40%; left: 40%"></mat-spinner>
+    </div>
+    <div>
+      <div class="card-body card-body-modal">
+        <!-- <div class="p-3"></div> -->
+        <!-- Table -->
+        <div class="row" id="content_to_print">
+          <div class="col-md-12">
+            <div class="main-card mb-3 card">
+              <div
+                class="card-header"
+                style="padding-top: 80px; padding-bottom: 80px"
+              >
+                <div class="d-flex flex-row-reverse bd-highlight mb-2">
+                  <div class="p-2 bd-highlight">
+                    <div class="d-flex align-items-center min-vh-100">
+                      <h1 class="text-center" style="margin: auto">
+                        TEA SUPPLIERS/FARMERS COUNT BY REGION
+                      </h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="table-responsive">
+                <table
+                  class="align-middle mb-0 table table-borderless table-striped table-hover"
+                >
+                  <thead>
+                    <tr>
+                      <th class="text-center">#</th>
+                      <th>Region Name</th>
+                      <th class="text-center">Total Farmers</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let region of farmersCounts; let i = index">
+                      <td class="text-center text-muted">#{{ i + 1 }}</td>
+                      <td>
+                        <div class="widget-content p-0">
+                          <div class="widget-content-wrapper">
+                            <div class="widget-content-left mr-3">
+                              <div class="widget-content-left">
+                                <i class="pe-7s-map-marker"></i>
+                              </div>
+                            </div>
+                            <div class="widget-content-left flex2">
+                              <div class="widget-heading">
+                                {{ region?.name }}
+                              </div>
+                              <div class="widget-subheading opacity-7"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">{{ region?.farmers_count }}</td>
+                    </tr>
+                    <tr *ngIf="farmersCounts.length == 0">
+                      <td></td>
+                      <td></td>
+                      <td>
+                        <span class="text-center"
+                          ><div class="badge badge-warning">
+                            {{ tbl_message }}
+                          </div></span
+                        >
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="d-block card-footer"></div>
+              <div style="padding: 20px; width: 60%; margin: auto">
+                <canvas
+                  height="50"
+                  width="50"
+                  id="report_chart_canvas"
+                ></canvas>
+              </div>
+              <div style="margin-top: 100px; float: right">
+                <i>Report genarated date: {{ current }}</i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--.\Table -->
+
+        <button
+          type="button"
+          data-toggle="tooltip"
+          title="Create new user account"
+          data-placement="bottom"
+          class="btn-shadow mr-3 btn btn-success"
+          (click)="convertToPDF()"
+        >
+          <i class="pe-7s-download"></i>
+          <span class="ml-2">Download Report</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <!-- <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button> -->
+  </div>
+</ng-template>
+<!--.\Modal -->
+
+<!-- Chart -->
+<div class="row">
+  <div class="col-md-12">
+    <div class="main-card mb-3 card">
+      <div class="card-header">
+        Tea Suppliers/Farmers Count by region
+        <div class="btn-actions-pane-right">
+          <div role="group" class="btn-group-sm btn-group"></div>
+        </div>
+      </div>
+      <div style="padding: 20px; width: 70%; margin: auto">
+        <canvas height="50" width="50" id="chart_canvas_1"></canvas>
+      </div>
+      <div class="d-block text-center card-footer"></div>
+    </div>
+  </div>
+</div>
+<!-- ./Chart -->

@@ -1,0 +1,142 @@
+.spinner {
+  position: absolute;
+  height: 100%;
+  width: 95%;
+  background: #3f51b5;
+  opacity: 0.5;
+  z-index: 99;
+}
+.spinner ::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: #ffffff; //spinner circle color
+}
+
+.card2 {
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+  transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
+    0.3s box-shadow,
+    0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
+
+  cursor: pointer;
+}
+
+.card2:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(255, 10, 10, 0.2),
+    0 4px 8px rgba(241, 99, 3, 0.1);
+}
+
+.card2 h3 {
+  font-weight: 600;
+}
+
+.card2-1 {
+  background-image: url(https://ionicframework.com/img/getting-started/ionic-native-card.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 80px;
+}
+
+@media (max-width: 990px) {
+  .card2 {
+    margin: 20px;
+  }
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  background-color: #3f51b5 !important;
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: #3f51b5 !important; /*inner circle color change*/
+}
+
+::ng-deep.mat-radio-button.mat-accent.mat-radio-checked
+  .mat-radio-outer-circle {
+  border-color: #3f51b5 !important; /*outer ring color change*/
+}
+
+.mat-form-field + .mat-form-field {
+  margin-left: 8px;
+  font-size: 13px;
+}
+
+.form-control.ng-touched.ng-invalid {
+  border: 1px solid red;
+}
+
+.mat-input-element {
+  height: 50%;
+}
+
+@-webkit-keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+// Table
+
+table {
+  width: 100%;
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.example-element-diagram {
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 104px;
+}
+
+.example-element-symbol {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.example-element-description {
+  padding: 16px;
+}
+
+.example-element-description-attribution {
+  opacity: 0.5;
+}

@@ -1,0 +1,54 @@
+<ng-template
+  [ngIf]="isLoggedIn"
+  [ngIfThen]="innerPages"
+  [ngIfElse]="landingPage"
+>
+</ng-template>
+
+<ng-template #innerPages>
+  <body>
+    <div
+      class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header"
+    >
+      <!-- Nav bar -->
+      <div class="row" [ngSwitch]="user_role">
+        <div *ngSwitchCase="'farmer'"></div>
+        <div *ngSwitchCase="'factory-manager'">
+          <app-topnavbar></app-topnavbar>
+        </div>
+        <div *ngSwitchCase="'coordinater'">
+          <app-topnavbar></app-topnavbar>
+        </div>
+        <div *ngSwitchDefault></div>
+      </div>
+      <!--./Nav bar -->
+
+      <div class="app-main">
+        <!-- Slide bar -->
+        <div class="row" [ngSwitch]="user_role">
+          <div *ngSwitchCase="'factory-manager'">
+            <app-slidebar [navigations]="managerNavigations"></app-slidebar>
+          </div>
+          <div *ngSwitchCase="'coordinater'">
+            <app-slidebar [navigations]="coordinatorNavigations"></app-slidebar>
+          </div>
+          <div *ngSwitchDefault>Default Option</div>
+        </div>
+        <!--./Slide bar -->
+
+        <div class="app-main__outer">
+          <div class="app-main__inner">
+            <router-outlet></router-outlet>
+          </div>
+          <!-- Footer -->
+          <app-footer></app-footer>
+          <!--./Footer -->
+        </div>
+      </div>
+    </div>
+  </body>
+</ng-template>
+
+<ng-template #landingPage>
+  <router-outlet></router-outlet>
+</ng-template>

@@ -1,0 +1,96 @@
+<div class="app-page-title">
+  <div class="page-title-wrapper">
+    <div class="page-title-heading">
+      <div class="page-title-icon">
+        <i class="pe-7s-home icon-gradient bg-mean-fruit"> </i>
+      </div>
+      <div>
+        Manager Dashboard
+        <div class="page-title-subheading">
+          {{ currentRoute }}
+        </div>
+      </div>
+    </div>
+    <div class="page-title-actions"></div>
+  </div>
+</div>
+
+<!-- Cards row -->
+<div class="row">
+  <div class="col-md-6 col-xl-4">
+    <div class="card card2 mb-3 widget-content">
+      <div class="widget-content-outer">
+        <div class="widget-content-wrapper">
+          <div class="widget-content-left">
+            <div class="widget-heading">Tea Suppliers</div>
+            <div class="widget-subheading card-sub-heading-text">
+              total: {{ usersCounts.farmers }}
+            </div>
+          </div>
+          <div class="widget-content-right">
+            <div class="widget-numbers card-sub-heading-text">
+              {{ usersCounts.farmers }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-xl-4">
+    <div class="card card2 mb-3 widget-content">
+      <div class="widget-content-outer">
+        <div class="widget-content-wrapper">
+          <div class="widget-content-left">
+            <div class="widget-heading">Collecting Agents</div>
+            <div class="widget-subheading card-sub-heading-text">
+              total: {{ usersCounts.c_agents }}
+            </div>
+          </div>
+          <div class="widget-content-right">
+            <div class="widget-numbers card-sub-heading-text">
+              {{ usersCounts.c_agents }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-xl-4">
+    <div class="card card2 mb-3 widget-content">
+      <div class="widget-content-outer">
+        <div class="widget-content-wrapper">
+          <div class="widget-content-left">
+            <div class="widget-heading">Coordinaters</div>
+            <div class="widget-subheading card-sub-heading-text">
+              total: {{ usersCounts.coordinaters }}
+            </div>
+          </div>
+          <div class="widget-content-right">
+            <div class="widget-numbers card-sub-heading-text">
+              {{ usersCounts.coordinaters }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--.\Cards row -->
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="main-card mb-3 card">
+      <div class="card-header">
+        Tea weightages of each month in
+        <span class="card-sub-heading-text">&nbsp; {{ currentYear }}</span>
+        <div class="btn-actions-pane-right">
+          <div role="group" class="btn-group-sm btn-group"></div>
+        </div>
+      </div>
+      <div style="padding: 20px">
+        <canvas height="80" id="chart_canvas_monthly_w"></canvas>
+      </div>
+      <div class="d-block text-center card-footer"></div>
+    </div>
+  </div>
+</div>

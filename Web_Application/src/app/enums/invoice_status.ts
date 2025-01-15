@@ -1,0 +1,7 @@
+export enum INVOICE_STATUS{
+    PENDING,
+    ACCEPTED,
+    DENIED,
+    PAYMENT_DENIED,
+    COMPLETE
+}
