@@ -31,3 +31,31 @@ Manages and maintains the collecting and coordination system.
 
 ### Customer Care Representative: 
 Handles customer inquiries and concerns related to the tea supply chain.
+
+## Results
+
+### Welcome Screen of the Web Application
+![image](https://github.com/user-attachments/assets/9c219f21-b0d2-4162-b35c-2bcd5c29b669)
+
+### Manager Dashboard
+![image](https://github.com/user-attachments/assets/c590dc9b-db8d-4558-8917-5db94b138c57)
+
+### Coordinator Dashboard
+![image](https://github.com/user-attachments/assets/73391e75-474b-4111-8c9d-32e82aa07d53)
+
+### Collecting Agent UI
+![image](https://github.com/user-attachments/assets/dd11b4d8-cd4c-4137-b943-7de6019dc6cb)
+![image](https://github.com/user-attachments/assets/652b9fe2-ec3a-463f-9bdb-ccd61dc1c79a)
+
+### Verify Agent UI
+![image](https://github.com/user-attachments/assets/5b8f2a25-1585-4476-a8fc-338fe8b719ed)
+![image](https://github.com/user-attachments/assets/aeeead86-7f2e-4460-a175-9752afc5e01d)
+
+
+
+
+
+
+
+
+
