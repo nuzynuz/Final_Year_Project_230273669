@@ -1,0 +1,882 @@
+{
+	"info": {
+		"_postman_id": "adb961c9-ed72-4acb-a651-6cb1a54e4e65",
+		"name": "Tea Factory",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Registration",
+			"item": [
+				{
+					"name": "coordinater",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userProfile\": {\r\n    \"firstName\":\"Coordinater 1\",\r\n    \"middleName\":\"DDDD\",\r\n    \"lastName\":\"DDDD\",\r\n    \"address\":\"DDDD\",\r\n    \"contact\":\"0761631054\",\r\n    \"collectingRegionId\":1,\r\n    \"login\":{\r\n        \"name\":\"aaaa\",\r\n        \"email\":\"coordinater26@domain.com\",\r\n        \"password\":\"12345\",    \r\n        \"avatar\":\"aaaa\"\r\n    }\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/users/signup/coordinater",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"users",
+								"signup",
+								"coordinater"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "manager",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userProfile\": {\r\n    \"firstName\":\"Sanjaya\",\r\n    \"middleName\":\"Janakantha\",\r\n    \"lastName\":\"DDDD\",\r\n    \"address\":\"DDDD\",\r\n    \"contact\":\"0761631054\",\r\n    \"login\":{\r\n        \"name\":\"Sanjaya\",\r\n        \"email\":\"manager@domain.com\",\r\n        \"password\":\"iwZdsQs\",    \r\n        \"avatar\":\"aaaa\"\r\n    }\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/users/signup/manager",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"users",
+								"signup",
+								"manager"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "v-agent",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userProfile\": {\r\n    \"firstName\":\"vagent\",\r\n    \"middleName\":\"vagent\",\r\n    \"lastName\":\"vagent\",\r\n    \"address\":\"galle\",\r\n    \"contact\":\"0761631054\",\r\n    \"login\":{\r\n        \"name\":\"Sanjaya\",\r\n        \"email\":\"vagent@domain.com\",\r\n        \"password\":\"xWNMg9z\",    \r\n        \"avatar\":\"\"\r\n    }\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/users/signup/verification-agent",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"users",
+								"signup",
+								"verification-agent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Farmer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userProfile\": {\r\n    \"firstName\":\"Farmer\",\r\n    \"middleName\":\"gunapala\",\r\n    \"lastName\":\"DDDD\",\r\n    \"address\":\"DDDD\",\r\n    \"contact\":\"0761631054\",\r\n    \"collectingRegionId\":1,\r\n    \"collectingAgentId\":1,\r\n    \"coordinatorId\":1,\r\n    \"rfid\":\"31 2D 22 E4\",\r\n    \"login\":{\r\n        \"name\":\"aaaa\",\r\n        \"email\":\"farmer12@domain.com\",\r\n        \"password\":\"12345\",    \r\n        \"avatar\":\"aaaa\"\r\n    }\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/users/signup/farmer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"users",
+								"signup",
+								"farmer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "c-agent",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userProfile\": {\r\n    \"firstName\":\"cagent\",\r\n    \"middleName\":\"cagent\",\r\n    \"lastName\":\"cagent\",\r\n    \"address\":\"galle\",\r\n    \"contact\":\"0773212932\",\r\n    \"collectingRegionId\":2,\r\n    \"login\":{\r\n        \"name\":\"aaaa\",\r\n        \"email\":\"cagent@domain.com\",\r\n        \"password\":\"xpYei11\",    \r\n        \"avatar\":\"\"\r\n    }\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/users/signup/c-agent",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"users",
+								"signup",
+								"c-agent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sendmail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"sanjaya\",\r\n    \"email\":\"sanudijayaweera@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/users/sendmail",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"users",
+								"sendmail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get users by role and region",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJzYW5qYXlhIiwiZW1haWwiOiJzYW5qYXlhQGRvbWFpbi5jb20iLCJpYXQiOjE2MzY5ODI5NjR9.iDeqiH5Zdu0e6t8u19LsHmXtqTj5Kg1-hN1mu2qU-Bc",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-auth-token",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJzYW5qYXlhIiwiZW1haWwiOiJzYW5qYXlhQGRvbWFpbi5jb20iLCJpYXQiOjE2MzY5ODM0ODN9.iQgxQJwIng-uJh6uynywJsiTVECqs8FibZmFdYY8GBc",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8081/api/users/getBy?regionId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"users",
+								"getBy"
+							],
+							"query": [
+								{
+									"key": "regionId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get users count",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJzYW5qYXlhIiwiZW1haWwiOiJzYW5qYXlhQGRvbWFpbi5jb20iLCJpYXQiOjE2MzY5ODI5NjR9.iDeqiH5Zdu0e6t8u19LsHmXtqTj5Kg1-hN1mu2qU-Bc",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-auth-token",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJzYW5qYXlhIiwiZW1haWwiOiJzYW5qYXlhQGRvbWFpbi5jb20iLCJpYXQiOjE2MzY5ODM0ODN9.iQgxQJwIng-uJh6uynywJsiTVECqs8FibZmFdYY8GBc",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8081/api/users/counts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"users",
+								"counts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/users/get/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"users",
+								"get",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user rfid card availablity",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rfid\":\"31 2D 79 2E\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/users/valid-rfid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"users",
+								"valid-rfid"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sign in/out",
+			"item": [
+				{
+					"name": "Sign out",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJzYW5qYXlhIiwiZW1haWwiOiJzYW5qYXlhQGRvbWFpbi5jb20iLCJpYXQiOjE2MzY5ODM0ODN9.iQgxQJwIng-uJh6uynywJsiTVECqs8FibZmFdYY8GBc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"sanjaya@domain.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/users/signout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"users",
+								"signout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Auth",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\":\"vagent@domain.com\",\r\n  \"password\":\"iwZdsQs\"\r\n}  ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "192.168.4.2:8081/api/auth",
+							"host": [
+								"192",
+								"168",
+								"4",
+								"2"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Collecting Region",
+			"item": [
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Horangalla\",\r\n    \"description\":\"ss\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/c-region/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"c-region",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Col. Region",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Ambana\",\r\n    \"description\":\"202 suppliers\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/c-region/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"c-region",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Region",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/c-region/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"c-region",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/c-region/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"c-region",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get farmers_count_by_regions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/c-region/farmers_count_by_regions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"c-region",
+								"farmers_count_by_regions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/c-region/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"c-region",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Coordinator",
+			"item": [
+				{
+					"name": "Get users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/coordinator/getUsers/farmer/27",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"coordinator",
+								"getUsers",
+								"farmer",
+								"27"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get My RegionId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/coordinator/getMyRegionId/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"coordinator",
+								"getMyRegionId",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tea Buckets",
+			"item": [
+				{
+					"name": "Add weitage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"teaBucket\": {\r\n      \"weight\": 34.5,\r\n      \"waterWeight\": 2.3,\r\n      \"bagWeight\": 0.5,\r\n      \"netWeight\": 32.5,\r\n      \"qualityGrade\": \"A\",\r\n      \"remarks\": \"Has Good condition\",\r\n      \"farmerId\": \"SUP0001\",\r\n      \"tag\": {\r\n        \"tagId\": \"884444444\",\r\n        \"status\": \"active\",\r\n        \"activatedTime\": \"2021-11-30 04:43:36\",\r\n        \"releaseTime\": \"2021-11-30 04:43:36\"\r\n      }\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/tag",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"tag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"rfid\":\"A3 D7 77 B4\",\r\n \"weight\":60.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/tag/verify",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"tag",
+								"verify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get weightages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/tag/19",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"tag",
+								"19"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Monthly weightage sum",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/tag/monthly-sum/2022/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"tag",
+								"monthly-sum",
+								"2022",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Year weightage sum",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/tag/year-sum/2022",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"tag",
+								"year-sum",
+								"2022"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vialations",
+			"item": [
+				{
+					"name": "Add vialation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/vialations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"vialations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Advance",
+			"item": [
+				{
+					"name": "Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"reqestedAmount\": 1000.0,\r\n    \"comment\":\"comment\",\r\n    \"loginId\":8\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/advance",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"advance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/advance",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"advance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Region",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/advance/getByRegion/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"advance",
+								"getByRegion",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Farmer-Login-Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/advance/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"advance",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
